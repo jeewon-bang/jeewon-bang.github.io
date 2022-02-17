@@ -113,7 +113,7 @@ Page.getInitialProps = wrapper.getInitialPageProps(store => ({pathname, req, res
 export default Page;
 ```
 
-- page에서 `getInitialProps`를 사용하려면 `wrapper`의 `getInitialPageProps`를 대입?해야함
+- page에서 `getInitialProps`를 사용하려면 `wrapper`의 `getInitialPageProps`를 대입해야함
 - 클라이언트 사이드에서 `getInitialProps`가 불려지면 `req`와 `res`를 사용할 수 없음
 
 <br />
@@ -176,7 +176,7 @@ export default wrapper.withRedux(MyApp);
 `next-redux-wrapper`(”the wrapper”)를 사용하면 다음 request이 생김
 
 - Phase 1: getInitialProps/getStaticProps/getServerSideProps
-  - wrapper는 비어있는 initial state로 **server쪽의 store**를 만듦. `makeStore`로 Request와 Response객체도 제공됨?
+  - wrapper는 비어있는 initial state로 **server쪽의 store**를 만듦. `makeStore`로 Request와 Response객체도 제공됨
   - In App mode:
     - wrapper는 `_app`의 `getInitialProps`를 호출하고 이전에 만들어진 store를 전달함
     - Next.js는 그 `props`를 받아서 store의 state와 함께 리턴함
@@ -192,4 +192,4 @@ export default wrapper.withRedux(MyApp);
   - wrapper는 새로운 store를 만듦
   - wrapper는 Phase 1의 state로부터 payload를 통해 `HYDRATE`를 보냄(dispatch)
   - 그 store는 `_app`이나 `page`컴포넌트의 속성(property)로 보내짐
-  - **wrapper는 client의 `window`객체에 그 store를 저장하고, 그러면 HMR??일 경우 restore됨????**
+  - **wrapper는 client의 `window`객체에 그 store를 저장하고, 그러면 HMR일 경우 restore됨**
